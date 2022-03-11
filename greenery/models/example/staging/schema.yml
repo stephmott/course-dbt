@@ -13,3 +13,67 @@ models:
       - name: weight
         tests:
           - positive_values
+  - name: stg_users
+    description: User information first and last name, email, phone 
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+  - name: stg_addresses
+    description: User addresses 
+    columns:
+      - name: address_id
+        tests:
+          - not_null
+          - unique
+  - name: stg_events
+    description: User event info 
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique
+      - name: user_id
+        tests:
+          - not_null
+  - name: stg_orders
+    description: User order info  
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: user_id
+        tests:
+          - not_null
+      - name: address_id
+        tests:
+          - not_null
+  - name: stg_products
+    description: Products available for purchase  
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+  - name: stg_order_items
+    description: Info for product Item ordered 
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: quantity
+        tests:
+          - not_null
+          - positive_values
+  - name: stg_promos
+    description: Promotion info
+    columns:
+      - name: promo_id
+        tests:
+          - not_null
+          - unique
+
+        
