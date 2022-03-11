@@ -10,7 +10,7 @@ models:
       - name: height
         tests:
           - positive_values
-      - name: weight
+      - name: weight_lbs
         tests:
           - positive_values
   - name: stg_users
@@ -63,7 +63,6 @@ models:
       - name: order_id
         tests:
           - not_null
-          - unique
       - name: quantity
         tests:
           - not_null
