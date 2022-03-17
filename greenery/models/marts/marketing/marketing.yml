@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: int_user_orders
+    description: Intermediate results for user's order info
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: user_id
+        tests:
+          - not_null
+      - name: order_total
+        tests:
+          - positive_values
+          - not_null
+      - name: ship_date
+        tests:
+          - not_null
+      - name: order_delivered_date
+        tests:
+          - not_null
+      - name: order_date
+        tests:
+          - not_null
+  - name: fact_user_orders
+    description: Aggregate info for user's order info
+    columns:
+      - name: user_id
+        tests:
+           - not_null
+            - unique

@@ -26,8 +26,14 @@ models:
         tests:
           - not_null
           - unique
-  - name: dim_orders
-    description: Basic order information
+  - name: dim_order_items
+    description: Details on each item of order information
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+  - name: int_fact_orders
+    description: Order info--includes first and last order dates
     columns:
       - name: order_id
         tests:

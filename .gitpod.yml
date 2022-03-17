@@ -4,6 +4,7 @@ tasks:
       ./gitpod-init.sh
     command: |
       ./gitpod-command.sh
+      export DBT_PROFILES_DIR='./greenery'
 ports:
   - port: 8000
     onOpen: open-browser
