@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: int_page_views
+    description: Intermediate results  calculates the start and stop times of each event per order per session per product
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique
+      - name: user_id
+        tests:
+          - not_null
+      - name: session_id
+        tests:
+          - not_null
+      - name: event_type
+        tests:
+          - not_null
+  - name: fact_page_views
+    description: Aggregate info for user's website viewing
+    columns:
+      - name: order_id
+        tests:
+           - not_null
+            - unique
