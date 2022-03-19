@@ -18,9 +18,12 @@ models:
         tests:
           - not_null
   - name: fact_page_views
-    description: Aggregate info for user's website viewing
+    description: Aggregate order info for user's website viewing for each event_type
     columns:
       - name: order_id
         tests:
            - not_null
             - unique
+      - name: event_type
+        tests:
+           - not_null
