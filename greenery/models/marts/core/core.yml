@@ -39,5 +39,49 @@ models:
         tests:
           - not_null
           - unique
+  - name: int_product_viewed
+    description: List all products viewed by session_id
+    columns:
+      - name: session_id
+        tests:
+          - not_null
+      - name: product_id
+        tests:
+          - not_null
+  - name: int_checkout_event
+    description: Lists all sessions with a checkout event
+    columns:
+      - name: session_id
+        tests:
+          - not_null
+      - name: order_id
+        tests:
+          - not_null
+  - name: int_product_purchased
+    description: Lists all products purchased by session_id and order_id
+    columns:
+      - name: session_id
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+  - name: int_conv_by_product
+    description: For all viewed products, was there a checkout event, and was that product purchased in that session
+    columns:
+      - name: session_id
+        tests:
+          - not_null
+      - name: product_id
+        tests:
+          - not_null
+  - name: fact_overall_conv_rate
+    description: Overall Conversion Rate
+  - name: fact_conv_rate_by_product
+    description: Overall Conversion Rate
+  
+
 
         
