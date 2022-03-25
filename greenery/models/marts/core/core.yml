@@ -63,11 +63,9 @@ models:
       - name: session_id
         tests:
           - not_null
-          - unique
       - name: order_id
         tests:
           - not_null
-          - unique
   - name: int_conv_by_product
     description: For all viewed products, was there a checkout event, and was that product purchased in that session
     columns:
@@ -79,8 +77,28 @@ models:
           - not_null
   - name: fact_overall_conv_rate
     description: Overall Conversion Rate
+    columns:
+      - name: sessions_with_orders
+        tests:
+          - not_null
+          - positive_values
+      - name: total_sessions
+        tests:
+          - not_null
+          - positive_values
   - name: fact_conv_rate_by_product
     description: Overall Conversion Rate
+    columns:
+      - name: sessions_with_orders
+        tests:
+          - not_null
+          - positive_values
+      - name: total_sessions
+        tests:
+          - not_null
+          - positive_values
+  - name: test_int_conv_by_product
+    description: test macro table
   
 
 

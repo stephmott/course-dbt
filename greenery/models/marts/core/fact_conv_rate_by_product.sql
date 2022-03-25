@@ -14,6 +14,6 @@ count_all_sessions_with_orders_by_prod as (
     group by product_id
     order by product_id
 )
-select tc.product_id,sessions_with_orders,total_sessions,sessions_with_orders::decimal/total_sessions::decimal as overall_conversion_rate
+select tc.product_id,sessions_with_orders,total_sessions,{{decimal_division('sessions_with_orders','total_sessions')}} as overall_conversion_rate
 from count_sessions_viewed_prod tc
 join count_all_sessions_with_orders_by_prod tc2 on tc2.product_id = tc.product_id

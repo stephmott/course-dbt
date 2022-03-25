@@ -1,0 +1,25 @@
+version: 2
+
+macros:
+  - name: decimal_division
+    description: Divides two fields, converting them to decimal, and checking to make sure the denominator is non-zero--if so returns 0
+    docs:
+      show: true 
+    arguments:
+      - name: numerator
+        type: column name or expression
+        description: The numerator (or top part) of a division statement
+      - name: denominator
+        type: column name or expression
+        description: The denominator (or bottom part) of a division statement
+  - name: max_checkout_time
+    description: Finds the maximum checkout time for a session for any product
+    docs:
+      show: true 
+    arguments:
+      - name: session
+        type: string
+        description: session_id to search for
+      - name: product
+        type: string
+        description: maximum checkout time for a session that purchased that product
