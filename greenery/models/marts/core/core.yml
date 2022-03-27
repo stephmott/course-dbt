@@ -87,7 +87,7 @@ models:
           - not_null
           - positive_values
   - name: fact_conv_rate_by_product
-    description: Overall Conversion Rate
+    description: Overall Conversion Rate by product
     columns:
       - name: sessions_with_orders
         tests:
@@ -99,7 +99,8 @@ models:
           - positive_values
   - name: test_int_conv_by_product
     description: test macro table
-  
+  - name: test_dbt_utils
+    description: test package call 
 
 
         
