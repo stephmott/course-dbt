@@ -27,3 +27,5 @@ models:
       - name: event_type
         tests:
            - not_null
+  - name: fact_funnel
+    description: Funnel Analysis drop off rates for session_id for events page_view, add_to_cart, and checkout (grain by product)
