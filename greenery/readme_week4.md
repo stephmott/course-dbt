@@ -24,7 +24,8 @@ Code:
 
 I created the 3-level funnel using a granularity of session_id by product_id which made it a bit more difficult because the product_id is not in the events table for a checkout event as it's by session, not product. I had previously created an intermediate model, /core/intermediate/int_conv_by_product for a previous assignment, and this has the checkout/purchase event information by session and product. I used this model for the session checkout event info by product, unioned with a simple CTE from the events model for the event_types page_view and add_to_cart to complete the funnel.
 
-[fact_funnel.sql](https://github.com/stephmott/course-dbt/greenery/models/marts/product/fact_funnel.sql)
+[fact_funnel.sql](https://github.com/stephmott/course-dbt/tree/main/greenery/models/marts/product/fact_funnel.sql)
+
 
 Funnel Results:
 ```
