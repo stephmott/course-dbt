@@ -30,9 +30,11 @@ I created the 3-level funnel using a granularity of session_id by product_id whi
 
 Funnel Results:
 ```
-Page_View,Add_to_Cart, or Checkout Event          578
-Add_to_Cart or Checkout Event                     467
-Checkout Event                                    361
+                                          count     lag     drop_off
+                                          
+Page_View,Add_to_Cart, or Checkout Event    578     null    null
+Add_to_Cart or Checkout Event               467     578     0.19
+Checkout Event                              361     467     0.23
 ```
 
 ### PART 3: Reflection questions

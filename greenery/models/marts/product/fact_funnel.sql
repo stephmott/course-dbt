@@ -39,7 +39,7 @@ level_3 as (
   where checkout_event = 'Y' and product_purchased = 'Y'
   group by session_id,product_id
 ),
-funnel_dropoff as (
+funnel_steps as (
 select 'Page_View,Add_to_Cart, or Checkout Event' as step, COUNT(distinct session_id) from level_1
   union -- joins the output of queries together (as long as they have the same columns)
 select 'Add_to_Cart or Checkout Event' as step, COUNT(distinct session_id) from level_2
@@ -48,4 +48,9 @@ select 'Checkout Event' as step, COUNT(distinct session_id) from level_3
 order by count desc -- applies to the whole result set
 )
 
-select * from funnel_dropoff
+select 
+  step
+  ,count
+  ,lag(count,1) over () 
+  ,round((1.0 - count::numeric/lag(count, 1) over ()),2) as drop_off
+from funnel_steps

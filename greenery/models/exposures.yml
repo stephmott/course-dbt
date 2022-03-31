@@ -1,10 +1,14 @@
-  - name: Product Funnel Dashboard
-    description: >
-      Models that are critical to our product funnel dashboard
+version: 2
+
+exposures:
+  
+  - name: Product_Funnel_Dashboard
     type: dashboard
     maturity: high
+    description: >
+      Models that are critical to our product funnel dashboard    
+    depends_on:
+      - ref('fact_funnel')      
     owner:
       name: Stephanie Mott
       email: smott@ucsc.edu
-    depends_on:
-      - ref(‘fact_funnel’)
