@@ -23,7 +23,7 @@ Code:
 
 ### PART 2 (Product Funnel):
 
-I created the 3-level funnel using a granularity of session_id by product_id which made it a bit more difficult because the product_id is not in the events table for a checkout event as it's by session, not product. I had previously created an intermediate model, /core/intermediate/int_conv_by_product for a previous assignment, and this has the checkout/purchase event information by session and product. I used this model for the session checkout event info by product, unioned with a simple CTE from the events model for the event_types page_view and add_to_cart to complete the funnel.
+I created the 3-level funnel using a granularity of session_id by product_id which made it a bit more difficult because the product_id is not in the events table for a checkout event as it's by session, not product. I had previously created an intermediate model, /core/intermediate/int_conv_by_product for a previous assignment, and this has the checkout/purchase event information by session and product. I used this model for the session checkout event info by product, unioned with a simple CTE from the events model for the event_types page_view and add_to_cart to complete the funnel. This is on a 'by session' basis:
 
 [fact_funnel.sql](https://github.com/stephmott/course-dbt/tree/main/greenery/models/marts/product/fact_funnel.sql)
 
@@ -36,6 +36,10 @@ Page_View,Add_to_Cart, or Checkout Event    578     null    null
 Add_to_Cart or Checkout Event               467     578     0.19
 Checkout Event                              361     467     0.23
 ```
+
+I went to the Friday programming session, and it was mentioned that this question should probably be answered on a by product basis, so I created and ran this model by product. Here's a link to the code:
+
+[fact_funnel_by_product.sql](https://github.com/stephmott/course-dbt/tree/main/greenery/models/marts/product/fact_funnel_by_product.sql)
 
 ### PART 3: Reflection questions
 #### 3A. if your organization is thinking about using dbt, how would you pitch the value of dbt/analytics engineering to a decision maker at your organization?
